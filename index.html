@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Wedding Invitation — [BRIDE] & [GROOM]</title>
-  <meta name="description" content="You are invited — [BRIDE] & [GROOM]" />
+  <title>Tún và Dưn</title>
+  <meta name="description" content="Dưn và Tún" />
   <style>
     :root{
       --accent:#c69f5c; /* gold */
@@ -18,7 +18,7 @@
     html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; color:var(--text);background:linear-gradient(180deg,var(--bg),#fff);}
     .hero{
       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;
-      background-image: url('images/banner.jpg');
+      background-image: url('images/photo4.jpg');
       background-size:cover;background-position:center;position:relative;}
     .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.35),rgba(255,255,255,0.75));backdrop-filter: blur(2px);} 
     .card{position:relative;z-index:2;width:100%;max-width:980px;border-radius:14px;padding:28px;background:var(--card-bg);box-shadow:0 8px 30px rgba(20,20,20,0.12);display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
@@ -43,7 +43,7 @@
     .map{margin-top:14px;border-radius:10px;overflow:hidden}
     iframe{width:100%;height:160px;border:0}
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-    .gallery img{width:100%;height:92px;object-fit:cover;border-radius:8px}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:8px}
 
     .section{margin-top:22px}
     .story{background:linear-gradient(180deg,#fff, #fbfaf8);padding:14px;border-radius:8px}
@@ -62,47 +62,53 @@
     <div class="overlay"></div>
     <div class="card" role="main">
       <div class="left">
-        <div style="text-align:center;margin-bottom:6px"><small class="sub">You're cordially invited to the wedding of</small></div>
-        <div class="names" style="text-align:center">[BRIDE] &amp; [GROOM]</div>
-        <h1 style="text-align:center">We are getting married</h1>
-        <p class="sub" style="text-align:center">Join us to celebrate our wedding on</p>
+        <div style="text-align:center;margin-bottom:6px"><small class="sub">Bạn bị ép tới ngày trọng đại của</small></div>
+        <div class="names" style="text-align:center">Dưn &amp; Tún</div>
+        <h1 style="text-align:center">Chúng tôi sẽ về một nhà</h1>
+        <p class="sub" style="text-align:center">Đừng quên ngày này</p>
 
-        <div style="display:flex;justify-content:center"><div class="pill">Saturday, 20 July 2026 • 10:00 AM</div></div>
+        <div style="display:flex;justify-content:center"><div class="pill">Chủ nhật, 12 tháng 4 2026 • 10:00 AM</div></div>
 
         <div class="countdown" aria-hidden="false" style="justify-content:center">
-          <div class="box"><div class="num" id="days">00</div><div class="lbl">Days</div></div>
-          <div class="box"><div class="num" id="hours">00</div><div class="lbl">Hours</div></div>
-          <div class="box"><div class="num" id="mins">00</div><div class="lbl">Minutes</div></div>
-          <div class="box"><div class="num" id="secs">00</div><div class="lbl">Seconds</div></div>
+          <div class="box"><div class="num" id="days">00</div><div class="lbl">Ngày</div></div>
+          <div class="box"><div class="num" id="hours">00</div><div class="lbl">Giờ</div></div>
+          <div class="box"><div class="num" id="mins">00</div><div class="lbl">Phút</div></div>
+          <div class="box"><div class="num" id="secs">00</div><div class="lbl">Giây</div></div>
         </div>
 
         <div class="actions" style="justify-content:center">
-          <button class="btn btn-primary" id="rsvpBtn">RSVP</button>
-          <a class="btn btn-outline" href="#location">View location</a>
+          <button class="btn btn-primary" id="rsvpBtn">Vote tham gia</button>
+          <a class="btn btn-outline" href="#location">Địa điểm</a>
         </div>
 
         <div class="section">
           <div class="story">
-            <h3 style="margin:0 0 6px 0">Our Story</h3>
-            <p style="margin:0;color:var(--muted)">We met at a coffee shop, fell in love over long walks and conversations. We'd be honored to have you with us on our special day.</p>
+            <h3 style="margin:0 0 6px 0">Chuyện của chúng mình</h3>
+            <p style="margin:0;color:var(--muted)">Ngày xưa, hai con người lười trả tin nhắn gặp nhau.
+Một người nói “hi”, người kia trả lời… sau 3 ngày.
+Ấy vậy mà vẫn nên duyên!
+Từ “chỉ là bạn” thành “không thể sống thiếu nhau”,
+chúng tôi đã cùng nhau đi qua vô số ngày cười ngả nghiêng và cà khịa nhau không ngớt.
+Và giờ đây, chúng tôi chính thức “nâng cấp” mối quan hệ —
+từ người yêu lên vợ chồng! 💍💕</p>
           </div>
         </div>
 
         <div class="section" id="rsvpSection">
-          <h3>RSVP</h3>
-          <form id="rsvpForm">
+          <h3>Vote</h3>
+          <form id="rsvpForm" action="https://formspree.io/f/mzzjazkv" method="POST">
             <div style="display:flex;gap:8px;margin-top:8px">
-              <input name="name" placeholder="Your name" required style="flex:1;padding:8px;border-radius:6px;border:1px solid #ddd" />
-              <input name="guests" placeholder="# Guests" type="number" min="0" style="width:120px;padding:8px;border-radius:6px;border:1px solid #ddd" />
+              <input name="name" placeholder="Tên bạn" required style="flex:1;padding:8px;border-radius:6px;border:1px solid #ddd" />
+              <input name="guests" placeholder="Có ai đi cùng bạn không?" type="number" min="0" style="width:120px;padding:8px;border-radius:6px;border:1px solid #ddd" />
             </div>
             <div style="margin-top:8px">
               <input name="email" placeholder="Email" type="email" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd" />
             </div>
             <div style="margin-top:8px;display:flex;gap:8px">
-              <button type="submit" class="btn btn-primary">Send RSVP</button>
+              <button type="submit" class="btn btn-primary">Gửi vote</button>
               <button type="button" id="openMusic" class="btn btn-outline">Play music</button>
             </div>
-            <p id="rsvpMsg" style="color:green;display:none;margin-top:8px">Thank you — your RSVP has been recorded.</p>
+            <p id="rsvpMsg" style="color:green;display:none;margin-top:8px">Cảm ơn, lựa chọn của bạn đã được lưu!</p>
           </form>
         </div>
 
@@ -113,7 +119,7 @@
 
         <div class="map" id="location">
           <!-- Replace src with Google Maps embed link for your venue -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!2m12!1m3!1d126743.123456!2d106.700!3d10.770!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0b9c9d7b3d%3A0xabcdef1234567890!2sSample%20Wedding%20Venue!5e0!3m2!1sen!2sus!4v1630000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3715.7084810826623!2d105.33449307587881!3d21.361990976248734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDIxJzQzLjIiTiAxMDXCsDIwJzEzLjQiRQ!5e0!3m2!1svi!2s!4v1759843289137!5m2!1svi!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="gallery">
@@ -124,25 +130,25 @@
         </div>
 
         <div class="section">
-          <h4 style="margin:8px 0">Event Details</h4>
-          <div class="pill">Ceremony: 10:00 AM @ Sample Wedding Venue</div>
-          <div style="margin-top:8px;color:var(--muted)">Reception to follow. Dress code: Smart Casual</div>
+          <h4 style="margin:8px 0">Chi tiết sự kiện</h4>
+          <div class="pill">Chủ nhật, 12 tháng 4 2026 • 10:00 AM</div>
+          <div style="margin-top:8px;color:var(--muted)">Mời bạn và người thương (nếu có 😍)</div>
         </div>
 
       </div>
 
-      <footer>Made with ❤️ · Replace content & images in /images folder</footer>
+      <footer>Made with ❤️</footer>
     </div>
   </div>
 
   <!-- Audio (autoplay may be blocked by browsers) -->
   <audio id="bgMusic" loop preload="auto">
-    <source src="audio/wedding-music.mp3" type="audio/mpeg">
+    <source src="audio/ILoveYou3000.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     // Countdown
-    const targetDate = new Date('2026-07-20T10:00:00'); // replace with event datetime (ISO)
+    const targetDate = new Date('2026-04-12T10:00:00'); // replace with event datetime (ISO)
     function updateCountdown(){
       const now = new Date();
       const diff = Math.max(0, targetDate - now);
