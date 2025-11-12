@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap');
 
-    /* Toàn trang */
-    body, html {
+    body,
+    html {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -17,60 +18,71 @@
       overflow-x: hidden;
     }
 
-    /* Hiệu ứng mở cửa */
-    #intro {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #b71c1c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
+    /* --- HIỆU ỨNG RÈM ĐỎ --- */
+    .intro {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
     }
 
-    #intro .door {
+    .curtain {
       position: absolute;
       top: 0;
-      width: 50%;
+      width: 100%;
       height: 100%;
-      background: #b71c1c;
-      transition: transform 2s ease-in-out;
-      z-index: 11;
+      object-fit: cover;
+      /* ảnh full và giữ tỉ lệ */
+      transition: transform 2s ease;
     }
 
-    #intro .left-door {
+    /* Chia ảnh bằng clip-path, chồng nhẹ để xóa đường mờ */
+    .left {
+      clip-path: inset(0 49.5% 0 0);
+      /* nửa trái */
       left: 0;
     }
 
-    #intro .right-door {
-      right: 0;
+    .right {
+      clip-path: inset(0 0 0 49.5%);
+      /* nửa phải */
+      left: 0;
     }
 
-    #intro.open .left-door {
+    /* trạng thái mở rèm */
+    .open-left {
       transform: translateX(-100%);
     }
 
-    #intro.open .right-door {
+    .open-right {
       transform: translateX(100%);
     }
 
-    #intro .double-happiness {
-      font-size: 120px;
+    .double-happiness {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 130px;
       color: gold;
-      z-index: 12;
-      animation: fadeIn 1.5s ease-in-out infinite alternate;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      z-index: 101;
+      animation: glow 1.5s ease-in-out infinite alternate;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0.6; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1.05); }
+    @keyframes glow {
+      from {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+      }
     }
 
-    /* Nội dung thiệp */
+    /* --- NỘI DUNG THIỆP --- */
     .content {
       opacity: 0;
       transition: opacity 2s ease;
@@ -100,6 +112,7 @@
     }
 
     .date {
+      font-family: 'Merriweather', serif;
       margin-top: 10px;
       font-size: 18px;
       color: #333;
@@ -116,11 +129,11 @@
     }
 
     .address {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       line-height: 1.5;
     }
 
-    /* Album ảnh */
     .gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -131,7 +144,7 @@
     .gallery img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       transition: transform 0.5s ease;
     }
 
@@ -139,7 +152,6 @@
       transform: scale(1.05);
     }
 
-    /* QR codes */
     .qr-section {
       margin-top: 50px;
     }
@@ -173,71 +185,106 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .couple-section {
+      display: flex;
+      justify-content: space-around;
+      /* tạo khoảng cách 2 cột */
+      align-items: flex-start;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      /* responsive: nếu màn hình bé thì xuống dòng */
+    }
+
+    .couple {
+      flex: 1 1 40%;
+      /* chiếm 40% mỗi cột, có thể co dãn */
+      text-align: center;
+    }
+
+    .couple h2 {
+      font-family: 'Playfair Display', serif;
+      color: #bfa142;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
+
 <body>
-  <!-- Hiệu ứng mở cửa -->
+  <!-- Hiệu ứng mở rèm -->
   <div id="intro">
-    <div class="door left-door"></div>
-    <div class="door right-door"></div>
-    <div class="double-happiness">囍</div>
+    <img src="images/back1.png" class="curtain left" alt="left">
+    <img src="images/back1.png" class="curtain right" alt="right">
   </div>
 
   <!-- Nội dung thiệp -->
   <div class="content" id="main-content">
     <h1>Lễ Thành Hôn</h1>
     <div class="names">Anh Tuấn & Khánh Dương</div>
-    <div class="date">Chủ nhật, 30 / 11 / 2025<br>(Tức ngày 11 tháng 10 năm Ất Tỵ)</div>
-
+    <div class="date">Chủ nhật, 30/11/2025<br>(Tức ngày 11 tháng 10 năm Ất Tỵ)</div>
+      <div class="gallery">
+        <img src="images/HAD01489.JPG" alt="Ảnh cưới 1">
+        <img src="images/HAD01624.JPG" alt="Ảnh cưới 2">
+      </div>
     <div class="section">
       <h2>Trân trọng kính mời</h2>
       <p>Đến dự buổi tiệc chung vui cùng gia đình chúng tôi tại</p>
       <p class="address">
         Tư gia nhà trai<br />
-        Tổ 11, Khu 2, Phường Vân Phú, Tỉnh Phú Thọ<br />
-        Vào lúc 11:00, Chủ nhật, 30/11/2025
+        TỔ 11, KHU 2, PHƯỜNG VÂN PHÚ, TỈNH PHÚ THỌ<br />
+        Vào lúc 16:00, thứ Bảy, 29/11/2025
+      </p>
+      <p class="address">
+        Tư gia nhà gái<br />
+        SỐ 2, NGÕ 105 LẠC LONG QUÂN, KHU GÁT, PHƯỜNG THANH MIẾU, TỈNH PHÚ THỌ<br />
+        Vào lúc 16:00, thứ Bảy, 29/11/2025
       </p>
     </div>
 
-    <div class="section">
-      <h2>Nhà trai</h2>
-      <p>Đào Thị Tiến</p>
-      <h2>Nhà gái</h2>
-      <p>Lương Khánh Ngọc - Nguyễn Thị Hương</p>
+    <div class="section couple-section">
+      <div class="couple">
+        <h2>Nhà trai</h2>
+        <p>Đào Thị Tiến</p>
+      </div>
+      <div class="couple">
+        <h2>Nhà gái</h2>
+        <p>Lương Khánh Ngọc</p>
+        <p>Nguyễn Thị Hương</p>
+      </div>
     </div>
 
     <div class="section">
-      <h2>Album Ảnh Cưới</h2>
+      <h2>Rất hân hạnh được đón tiếp!</h2>
       <div class="gallery">
-        <img src="https://via.placeholder.com/400x600?text=Ảnh+1" alt="Ảnh cưới 1">
-        <img src="https://via.placeholder.com/400x600?text=Ảnh+2" alt="Ảnh cưới 2">
-        <img src="https://via.placeholder.com/400x600?text=Ảnh+3" alt="Ảnh cưới 3">
-        <img src="https://via.placeholder.com/400x600?text=Ảnh+4" alt="Ảnh cưới 4">
+        <img src="images/HAD01384.JPG" alt="Ảnh cưới 3">
+        <img src="images/HAD02344.JPG" alt="Ảnh cưới 4">
       </div>
     </div>
 
     <div class="qr-section">
       <h2>Địa chỉ</h2>
       <div class="qr-container">
-        <div class="qr">QR Nhà trai</div>
-        <div class="qr">QR Nhà gái</div>
+        <div class="qr"><img class="qr" src="images/qrtrai.jpeg" alt="qr nha trai"></div>
+        <div class="qr"><img class="qr" src="images/qrgai.jpeg" alt="qr nha gai"></div>
       </div>
     </div>
 
-    <footer>Rất hân hạnh được đón tiếp!</footer>
   </div>
 
   <script>
-    // Sau 2.5 giây, mở cửa và hiển thị nội dung
-    window.onload = function() {
+    // Sau 2.5 giây, mở rèm và hiển thị nội dung
+    window.onload = function () {
       setTimeout(() => {
-        document.getElementById('intro').classList.add('open');
+        document.querySelector('.left').classList.add('open-left');
+        document.querySelector('.right').classList.add('open-right');
         setTimeout(() => {
           document.getElementById('intro').style.display = 'none';
           document.getElementById('main-content').classList.add('show');
-        }, 2000);
-      }, 2000);
+        }, 600);
+      }, 1000);
     };
   </script>
 </body>
+
 </html>
